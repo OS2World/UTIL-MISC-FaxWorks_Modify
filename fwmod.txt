@@ -1,0 +1,47 @@
+
+FaxWorks Modify
+==================
+
+With this utility, you can change the behaviour of FaxWorks
+(included in WARP). One of the annoying things about it is,
+that this light version doesn't allow to be started in auto
+receive mode (Command line switch -R doesn't work).
+Now you can write a small script that starts FaxWorks and
+enables auto receive later.
+
+Just start fwmod.exe and have a look at the available options.
+
+[c:\]fwmod.exe
+FaxWorks Modify
+by Nils Meier 08.01.97
+   meier2@athene.informatik.uni-bonn.de
+
+Usage   : fwmod.exe [Options]
+Options :
+ -0  AutoReceive Off
+ -!  AutoReceive Now
+ -1  AutoReceive One
+ -a  AutoReceive All
+ -sx Set secs to wait before MessagePosting
+ -q  Quit FaxWorks
+
+By specifying any of the above options, you can modify a running
+FaxWorks process. With the option -sx (substitute any number for x)
+you delay the modification. So FaxWorks has a chance to get
+started and get its windows open (When started in script).
+
+Suggested Installation :
+  Copy fwmod.exe & FaxWorks.cmd to your FaxWorks directory
+  Modify FaxWorks Programm Object to start FaxWorks.cmd
+  Modify FaxWorks.cmd to special needs (-a/-1/... and -sx)
+
+
+Any comments are appreciated
+  Nils
+
+meier2@athene.informatik.uni-bonn.de
+
+Files: fwmod.exe          Executable
+       fwmod.txt          This Info
+       FaxWorks.cmd       Script to start FaxWorks and set to ReceiveAll
+       source.zip VAC++   Project / Sourcecode

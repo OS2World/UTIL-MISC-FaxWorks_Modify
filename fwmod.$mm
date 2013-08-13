@@ -1,0 +1,25 @@
+:TARGET.SUFFIXES
+:DEPENDENCY..c .obj 
+:TARGET.all
+:DEPENDENCY.
+.\fwmod.exe
+:RULE..c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Ss /Oc /C %s
+:TARGET..\fwmod.exe
+:DEPENDENCY.
+.\fwmod.obj
+{$(LIB)}fwmod.def
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /exepack:2"
+ /Fefwmod.exe 
+ fwmod.def
+ .\fwmod.obj
+<<
+:TARGET..\fwmod.obj
+:DEPENDENCY.
+"H:\Nils.C++\FWMod\fwmod.c"
+{"H:\Nils.C++\FWMod;$(INCLUDE);"}fwmod.h
